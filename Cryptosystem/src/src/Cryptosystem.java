@@ -159,9 +159,16 @@ public class Cryptosystem {
 		ArrayList<BigInteger> blocks = new ArrayList<BigInteger>();
 		
 		File pFile = new File(plaintext);
+		if(!pFile.exists()){
+			System.out.println("No plaintext file found! Place one in the project src/ folder");
+			return;
+		}
 		BufferedReader pText = new BufferedReader(new FileReader(pFile));
 		
 		File pubFile = new File(pubkey);
+		if(!pubFile.exists()){
+			System.out.println("No public keys file! Run the key generation!");
+		}
 		BufferedReader pub = new BufferedReader(new FileReader(pubFile));
 		
 		File cFile = new File(ciphertext);
